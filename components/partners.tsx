@@ -1,5 +1,12 @@
 "use client";
 
+type DataBrand = {
+    imageSrc: string;
+    lightImageSrc: string;
+    altText: string;
+    link: string;
+};
+
 const brandsData = [
     {
         imageSrc:
@@ -53,7 +60,7 @@ export default function Partners() {
     );
 }
 
-const SingleImage = ({ brand }) => {
+const SingleImage = ({ brand }: { brand: DataBrand }) => {
     const { link, imageSrc, lightImageSrc, altText } = brand;
     return (
         <>
