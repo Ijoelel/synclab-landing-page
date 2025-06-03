@@ -8,16 +8,15 @@ import Faq from "@/components/faq";
 import Footer from "@/components/footer";
 
 export default function Home() {
-  return (
-    <main className="flex flex-col min-h-dvh">
-      <NavBar />
-      <Hero />
-      <Partners />
-      <Testimonials />
-      <Stats />
-      <Pricing />
-      <Faq />
-      <Footer />
-    </main>
-  );
+    return (
+        <main className="flex flex-col min-h-dvh">
+            <NavBar />
+            <Hero />
+            <Partners />
+            <Stats />
+            <Pricing />
+            <Testimonials />
+            <Footer />
+        </main>
+    );
 }

@@ -1,36 +1,194 @@
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
+import { Link } from "@heroui/link"; // Menggunakan Link dari @heroui/link
 
 const Footer = () => {
-  return (
-    <footer className="w-full max-w-screen-xl mx-auto px-4 py-28 gap-5 md:px-8 flex flex-col justify-between items-center">
-      <h5 className="font-medium bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text">
-        #BuildingInPublic
-      </h5>
+    const currentYear = new Date().getFullYear();
 
-      <Button
-        as={Link}
-        href="https://x.com/gonzalochale"
-        color="default"
-        variant="light"
-        size="sm"
-      >
-        Connect on{" "}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
-          fill="none"
-          viewBox="0 0 1200 1227"
-        >
-          <path
-            fill="currentColor"
-            d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"
-          />
-        </svg>
-      </Button>
-    </footer>
-  );
+    // Placeholder untuk tautan media sosial SyncLab Anda
+    // Ganti dengan URL sebenarnya dan pertimbangkan untuk menggunakan ikon
+    const socialLinks = [
+        {
+            name: "Facebook",
+            href: "https://facebook.com/synclab",
+            label: "SyncLab di Facebook",
+        },
+        {
+            name: "Instagram",
+            href: "https://instagram.com/synclab",
+            label: "SyncLab di Instagram",
+        },
+        { name: "X", href: "https://x.com/synclab", label: "SyncLab di X" },
+        {
+            name: "LinkedIn",
+            href: "https://linkedin.com/company/synclab",
+            label: "SyncLab di LinkedIn",
+        },
+    ];
+
+    return (
+        <footer className="w-full bg-background border-t border-border text-sm">
+            {" "}
+            {/* Latar belakang dan border atas */}
+            <div className="max-w-screen-xl mx-auto px-4 py-12 md:px-8">
+                {" "}
+                {/* Padding standar */}
+                {/* Bagian Atas: Nama Brand, Tagline, dan Media Sosial */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+                    <div className="max-w-md">
+                        <Link
+                            href="/"
+                            className="block text-2xl font-bold text-foreground hover:text-primary transition-colors"
+                        >
+                            SyncLab
+                        </Link>
+                        <p className="mt-2 text-muted-foreground">
+                            Cara cerdas berbagi akses premium, lebih hemat dan
+                            mudah untuk semua kebutuhan digital Anda.
+                        </p>
+                    </div>
+                    <div className="flex flex-wrap gap-x-4 gap-y-2">
+                        {socialLinks.map((social) => (
+                            <Link
+                                key={social.name}
+                                href={social.href}
+                                target="_blank" // Buka di tab baru
+                                rel="noopener noreferrer" // Keamanan untuk target="_blank"
+                                className="text-muted-foreground hover:text-primary transition-colors"
+                                aria-label={social.label} // Untuk aksesibilitas
+                            >
+                                {/* Anda bisa mengganti teks ini dengan komponen Ikon SVG nantinya */}
+                                {social.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+                {/* Bagian Tengah: Kolom Navigasi Link */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+                    <div>
+                        <h4 className="font-semibold text-foreground mb-4">
+                            Navigasi
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link
+                                    href="/"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Beranda
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/cara-kerja"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Cara Kerja
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/harga"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Harga
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/faq"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    FAQ
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-semibold text-foreground mb-4">
+                            Perusahaan
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link
+                                    href="/tentang-kami"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Tentang Kami
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/kontak"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Hubungi Kami
+                                </Link>
+                            </li>
+                            {/* <li><Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li> */}
+                            {/* <li><Link href="/karir" className="text-muted-foreground hover:text-primary transition-colors">Karir</Link></li> */}
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-semibold text-foreground mb-4">
+                            Legal
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link
+                                    href="/ketentuan-layanan"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Ketentuan Layanan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/kebijakan-privasi"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Kebijakan Privasi
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-semibold text-foreground mb-4">
+                            Bantuan
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link
+                                    href="/pusat-bantuan"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Pusat Bantuan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/status-layanan"
+                                    className="text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    Status Layanan
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {/* Bagian Bawah: Hak Cipta */}
+                <div className="text-center pt-8 border-t border-border/60">
+                    {" "}
+                    {/* Border pemisah yang lebih halus */}
+                    <p className="text-muted-foreground">
+                        &copy; {currentYear} SyncLab. Semua hak cipta
+                        dilindungi.
+                    </p>
+                    <p className="text-xs text-muted-foreground/80 mt-1">
+                        Dibuat dengan ❤️ untuk kemudahan Anda.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    );
 };
 
 export default Footer;
